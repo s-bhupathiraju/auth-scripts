@@ -15,16 +15,16 @@ end
 
 oauth_token = JSON.parse(ARGV[0])
 
-puts "\nOriginal Payload" + oauth_token.to_s
-
+puts "\nOriginal Payload: \n" + oauth_token.to_s
+puts  "\n-----------------------------------------------------------------------"
 #id_token_header = parse_id_token_body(decode_tokens(oauth_token["access_token"])[0])
 id_token_body = parse_id_token_body(decode_tokens(oauth_token["access_token"])[1])
 #id_token_signature = parse_id_token_body(decode_tokens(oauth_token["access_token"])[2])
 
 oauth_token["access_token"] = id_token_body
 
-puts  "\n------------------------------"
+puts "\n prettified JSON of token body: \n" + JSON.pretty_generate(oauth_token)
+puts  "\n-----------------------------------------------------------------------"
 #puts JSON.pretty_generate(id_token_header)
 #puts JSON.pretty_generate(id_token_body)
 #puts JSON.pretty_generate(id_token_header)
-puts JSON.pretty_generate(oauth_token)
