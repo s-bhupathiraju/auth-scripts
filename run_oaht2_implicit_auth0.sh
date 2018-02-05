@@ -7,7 +7,7 @@ AUTH0_BASE_URL=$AUTH0_SCHEME://$AUTH0_HOST:$AUTH0_PORT
 # localhost hellosp
 CLIENT_ID=q4xGl4gizkR5QNHQuTEIfu8jFPtAV540
 CLIENT_SECRET=7ZZ_Xk3ycaFU2UmdQismfsCx2SPLmrM82nGNe_ki1D0yngvltcIrMUW9iyXjWS-H
-REDIRECT_URI=http://example.com
+REDIRECT_URI=http%3A%2F%2Fexample.com
 SCOPE1=profile
 SCOPE2=email
 SCOPE3=offline_access
@@ -37,14 +37,13 @@ rawurlencode() {
 
 printf "\nSTEP 1.-------------- Copy this link and execute in your browser ---------------------------------------\n"
 AUTH_CODE_ENDPOINT="$AUTH0_BASE_URL/authorize?\
-response_type=id_tokene&\
-scope=token|id_token|id_token token&\
-state=$STATE&\
-audience=$API_IDENTIFIER&\
+response_type=tokene&\
 client_id=$CLIENT_ID&\
 redirect_uri=$REDIRECT_URI"
 
-#echo $( rawurlencode "$AUTH_CODE_ENDPOINT" )
-
 echo $AUTH_CODE_ENDPOINT
+TOKEN="$(curl $AUTH_CODE_ENDPOINT)"
+
+echo $TOKEN
+
 

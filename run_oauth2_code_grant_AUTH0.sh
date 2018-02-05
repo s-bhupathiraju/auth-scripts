@@ -38,7 +38,7 @@ rawurlencode() {
 printf "\nSTEP 1.-------------- Copy this link and execute in your browser ---------------------------------------\n"
 AUTH_CODE_ENDPOINT="$AUTH0_BASE_URL/authorize?\
 response_type=code&\
-scope=$SCOPE3%20$SCOPE2%20$SCOPE1&\
+scope=openid%20profile%20offline_access&\
 state=$STATE&\
 audience=$API_IDENTIFIER&\
 client_id=$CLIENT_ID&\
