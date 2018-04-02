@@ -1,19 +1,20 @@
 #!/usr/bin/env bash
 
 AUTH0_SCHEME=https
-AUTH0_HOST=sbhupathiraju-ebsco.auth0.com
+AUTH0_HOST=ebsco-ront.auth0.com
 AUTH0_PORT=443
 AUTH0_BASE_URL=$AUTH0_SCHEME://$AUTH0_HOST:$AUTH0_PORT
 # localhost hellosp
-CLIENT_ID=q4xGl4gizkR5QNHQuTEIfu8jFPtAV540
-CLIENT_SECRET=7ZZ_Xk3ycaFU2UmdQismfsCx2SPLmrM82nGNe_ki1D0yngvltcIrMUW9iyXjWS-H
+CLIENT_ID=E6UDT3lCCgVzeXruMYZZk6XiWlyS4rOl
+CLIENT_SECRET=vML9FK1UmQzB684p3a405P8-iX0mCwe6go37D0iy0zsDMiYrRDrhowNQRCbdQJ82
 REDIRECT_URI=http://example.com
-SCOPE1=profile
-SCOPE2=email
+#http://localhost:8001/auth0-login
+SCOPE1=openid
+SCOPE2=profile
 SCOPE3=offline_access
 BASE64_BASIC_AUTH=NWEwZjE3ZjFkYTA1N2EwNzMwMTM4NGU2OmhlbGxv
 STATE=UUID_0012345
-API_IDENTIFIER=http://example.com/api/v2
+API_IDENTIFIER=https://example.com/api
 
 rawurlencode() {
   local string="${1}"
