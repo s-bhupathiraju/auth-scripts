@@ -74,7 +74,7 @@ EOF
 echo $TOKEN
 
 printf "\nSTEP 4.-------------- Using Bearer access token --------------------------------------------------------\n"
-ruby parse-oauth-token.rb "$TOKEN"
+#ruby parse-oauth-token.rb "$TOKEN"
 
 echo "Enter the access token from the response..."
 read ACCESS_TOKEN
