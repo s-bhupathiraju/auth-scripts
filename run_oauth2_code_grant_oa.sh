@@ -7,7 +7,7 @@ OATHENS_BASE_URL=$OATHENS_SCHEME://$OATHENS_HOST:$OATHENS_PORT
 
 CLIENT_ID=idp.ebscohost.com.oidc-app-v1.b9536094-e7da-4d79-a8f6-74b2914b28a5
 CLIENT_SECRET=QwnsJ3rVcovGhRKOgvmlvDvHm
-REDIRECT_URI=https://www.example.com/auth0-login
+REDIRECT_URI=https://www.example.com/callback
 
 STATE=UUID_0012345
 
