@@ -11,26 +11,6 @@ REDIRECT_URI=https://www.example.com/auth0-login
 
 STATE=UUID_0012345
 
-rawurlencode() {
-  local string="${1}"
-  local strlen=${#string}
-  local encoded=""
-  local pos c o
-
-  for (( pos=0 ; pos<strlen ; pos++ )); do
-     c=${string:$pos:1}
-     case "$c" in
-        [-_.~a-zA-Z0-9] ) o="${c}" ;;
-        * )               printf -v o '%%%02x' "'$c"
-     esac
-     encoded+="${o}"
-  done
-  echo "${encoded}"    # You can either set a return variable (FASTER)
-  REPLY="${encoded}"   #+or echo the result (EASIER)... or both... :p
-}
-
-
-
 printf "\nSTEP 1.-------------- Copy this link and execute in your browser ---------------------------------------\n"
 AUTH_CODE_ENDPOINT="$OATHENS_BASE_URL/oidc/auth?response_type=code&scope=openid%20profile%20email&state=$STATE&client_id=$CLIENT_ID&redirect_uri=$REDIRECT_URI"
 echo $AUTH_CODE_ENDPOINT
