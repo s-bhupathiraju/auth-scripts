@@ -21,5 +21,8 @@ read CODE
 TOKEN=$(curl -vk -X POST --basic -u "idp.ebscohost.com.oidc-app-v1.b9536094-e7da-4d79-a8f6-74b2914b28a5:QwnsJ3rVcovGhRKOgvmlvDvHm" -H "Content-Type: application/x-www-form-urlencoded;charset=UTF8" -d "grant_type=authorization_code&code=$CODE&client_id=$CLIENT_ID&redirect_uri=$REDIRECT_URI" https://connect.openathens.net/oidc/token)
 
 echo $TOKEN
+printf "\nSTEP 3.-------------- Copy the access token from the previous result and paste here to continue---------------------\n"
+read ACCESS_TOKEN
 
-
+RESOURCE=$(curl -vk -X GET --url "http://connect.openathens.net/oidc/userinfo" -H "Content-Type: application/json" -H "Authorization: Bearer $ACCESS_TOKEN")
+echo $RESOURCE
